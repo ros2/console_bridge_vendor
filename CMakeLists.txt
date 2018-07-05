@@ -11,9 +11,12 @@ macro(build_console_bridge)
   endif()
 
   include(ExternalProject)
-  ExternalProject_Add(console_bridge-0.4.0
-    URL https://github.com/ros/console_bridge/archive/0.4.0.tar.gz
-    URL_MD5 19a7b3ee7e99e41c1abd5c005418f50a
+  # Get console_bridge 0.4.0 + 2 patches:
+  # 4a52e5dfe6b8301bc18e472ad585ea216f3762f7: explicitly enable CMake policy 42 to prevent warning
+  # ad25f7307da76be2857545e7e5c2a20727eee542: use new version of gtest to fix windows warnings
+  ExternalProject_Add(console_bridge-ad25f73
+    URL https://github.com/ros/console_bridge/archive/ad25f7307da76be2857545e7e5c2a20727eee542.tar.gz
+    URL_MD5 5a7ab572593e2483ab1b08154c2af0b6
     TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
