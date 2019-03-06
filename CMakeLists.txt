@@ -34,7 +34,12 @@ macro(build_console_bridge)
         list(APPEND extra_cmake_args "-DANDROID_TOOLCHAIN_NAME=${ANDROID_TOOLCHAIN_NAME}")
       endif()
     endif()
+  else()
+    list(APPEND extra_cmake_args "-DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}")
+    list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
   endif()
+  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
+
   include(ExternalProject)
   # Get console_bridge 0.4.1
   ExternalProject_Add(console_bridge-0.4.1
