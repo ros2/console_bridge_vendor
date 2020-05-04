@@ -104,7 +104,7 @@ The copyright holders each provide a statement of copyright in each source code 
 
 ### Direct Runtime non-ROS Dependency [5.iii]
 
-`console_bridge_vendor` depends directly on the external dependency `libconsole-bridge-dev`, this one is qualified as quality level 4 as described thoroughly [QD libconsole-bridge-dev](./libconsole-drige-dev_QD.md).
+`console_bridge_vendor` depends directly on the external dependency `libconsole-bridge-dev`, this one is qualified as quality level 4 as described thoroughly [QD libconsole-bridge-dev](https://github.com/ros/console_bridge/blob/master/Quality_Declaration.md).
 
 ## Platform Support [6]
 
