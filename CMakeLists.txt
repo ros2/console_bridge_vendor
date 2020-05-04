@@ -49,10 +49,11 @@ macro(build_console_bridge)
   list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
 
   include(ExternalProject)
-  # Get console_bridge 0.4.1
-  externalproject_add(console_bridge-0.4.1
-    URL https://github.com/ros/console_bridge/archive/0.4.1.tar.gz
-    URL_MD5 6bb0f640db1712cf2277e7923e7bab68
+
+  # Get console_bridge 0.5.1
+  externalproject_add(console_bridge-0.5.1
+    URL https://github.com/ros/console_bridge/archive/0.5.1.tar.gz
+    URL_MD5 c49ac3396ef364862ea8aef5ce28bb66
     TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
@@ -69,7 +70,7 @@ macro(build_console_bridge)
   )
 endmacro()
 
-if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.4.1)
+if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.5.1)
   build_console_bridge()
 endif()
 
