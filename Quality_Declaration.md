@@ -18,7 +18,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Public API Declaration [1.iii]
 
-External dependency is loaded downloaded from upstream and there is no public API declaration hosted for `libconsole-bridge-dev`.
+This is a vendor package for `libconsole-bridge-dev` and as such does not declare its own API.
 
 ### API Stability Policy [1.iv]
 
