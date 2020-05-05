@@ -26,7 +26,7 @@ This is a vendor package for `libconsole-bridge-dev` and as such does not declar
 
 ### ABI Stability Policy [1.v]
 
-`console_bridge_vendor` does not have an ABI of its own, and will limit its dependency on `libconsole-bridge-dev` to API stable releases within a released ROS distribution.
+`console_bridge_vendor` does not have an ABI of its own, and will limit its dependency on `libconsole-bridge-dev` to ABI stable releases within a released ROS distribution.
 
 ### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
 
@@ -64,7 +64,7 @@ There is some documentation on its latest [wiki](http://wiki.ros.org/console_bri
 
 ### Public API Documentation [3.ii]
 
-`console_bridge_vendor` does not have Public API Documentation.
+`console_bridge_vendor` does not have an API and therefore does not require API documentation.
 
 ### License [3.iii]
 
@@ -78,7 +78,7 @@ The copyright holders each provide a statement of copyright in each source code 
 
 ### Feature Testing [4.i]
 
-`console_bridge_vendor` does not have features testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`console_bridge_vendor` does not have feature testing. For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Public API Testing [4.ii]
 
