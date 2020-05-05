@@ -22,11 +22,11 @@ This is a vendor package for `libconsole-bridge-dev` and as such does not declar
 
 ### API Stability Policy [1.iv]
 
-`console_bridge_vendor` is pinned to a `libconsole-bridge-dev` version (Currently 0.4.1), so it will not break public API within a released ROS distribution, i.e. no major releases once the ROS distribution is released.
+`console_bridge_vendor` does not have an API of its own, and will limit its dependency on `libconsole-bridge-dev` to API stable releases within a released ROS distribution.
 
 ### ABI Stability Policy [1.v]
 
-`console_bridge_vendor` is pinned to a `libconsole-bridge-dev` version (Currently 0.4.1), so it will not break public ABI within a released ROS distribution, i.e. no major releases once the ROS distribution is released.
+`console_bridge_vendor` does not have an ABI of its own, and will limit its dependency on `libconsole-bridge-dev` to API stable releases within a released ROS distribution.
 
 ### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
 
@@ -78,19 +78,19 @@ The copyright holders each provide a statement of copyright in each source code 
 
 ### Feature Testing [4.i]
 
-`console_bridge_vendor` does not have features testing.
+`console_bridge_vendor` does not have features testing. For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Public API Testing [4.ii]
 
-`console_bridge_vendor` does not have Public API testing.
+`console_bridge_vendor` does not have Public API testing. For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Coverage [4.iii]
 
-`console_bridge_vendor` does not provide coverage testing.
+`console_bridge_vendor` does not provide coverage testing. For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Performance [4.iv]
 
-`console_bridge_vendor` does not provide performance testing.
+`console_bridge_vendor` does not provide performance testing. For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Linters and Static Analysis [4.v]
 
@@ -104,7 +104,7 @@ The copyright holders each provide a statement of copyright in each source code 
 
 ### Direct Runtime non-ROS Dependency [5.iii]
 
-`console_bridge_vendor` depends directly on the external dependency `libconsole-bridge-dev`, which is qualified as quality level 4 in its [Quality Declaration](https://github.com/ros/console_bridge/blob/master/Quality_Declaration.md).
+`console_bridge_vendor` depends directly on the external dependency `libconsole-bridge-dev`, which is qualified as quality level 4 in its [Quality Declaration](https://github.com/ros/console_bridge/blob/master/QUALITY_DECLARATION.md).
 
 ## Platform Support [6]
 
