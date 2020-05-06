@@ -30,7 +30,7 @@ This is a vendor package for `libconsole-bridge-dev` and as such does not declar
 
 ### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
 
-`console_bridge_vendor` will not break API nor ABI within a released ROS distribution, i.e. no major releases once the ROS distribution is released.
+As `console_bridge_vendor` does not come with its own API/ABI, changes will not affect API/ABI stability.
 
 ## Change Control Process [2]
 
