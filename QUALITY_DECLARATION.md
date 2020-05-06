@@ -68,7 +68,7 @@ There is some documentation on its latest [wiki](http://wiki.ros.org/console_bri
 
 ### License [3.iii]
 
-The license for `console_bridge_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](./package.xml) manifest file, and a full copy of the license is in the `LICENSE` file. The vendored library, `libconsole-bridge-dev` license is BSD and it is documented in is quality declaration documented (Section 5.iii).
+The license for `console_bridge_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](./package.xml) manifest file, and a full copy of the license is in the `LICENSE` file. The vendored library, `libconsole-bridge-dev` license is BSD as stated in its quality declaration document (Section 5.iii).
 
 ### Copyright Statements [3.iv]
 
