@@ -20,17 +20,13 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 This is a vendor package for `libconsole-bridge-dev` and as such does not declare its own API.
 
-### API Stability Policy [1.iv]
+### API Stability Policy [1.iv]/[1.vi]
 
 `console_bridge_vendor` does not have an API of its own, and will limit its dependency on `libconsole-bridge-dev` to API stable releases within a released ROS distribution.
 
-### ABI Stability Policy [1.v]
+### ABI Stability Policy [1.v]/[1.vi]
 
 `console_bridge_vendor` does not have an ABI of its own, and will limit its dependency on `libconsole-bridge-dev` to ABI stable releases within a released ROS distribution.
-
-### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
-
-As `console_bridge_vendor` does not come with its own API/ABI, changes will not affect API/ABI stability.
 
 ## Change Control Process [2]
 
