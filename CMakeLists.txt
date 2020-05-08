@@ -50,7 +50,7 @@ macro(build_console_bridge)
 
   include(ExternalProject)
   # Get console_bridge 0.4.1
-  ExternalProject_Add(console_bridge-0.4.1
+  externalproject_add(console_bridge-0.4.1
     URL https://github.com/ros/console_bridge/archive/0.4.1.tar.gz
     URL_MD5 6bb0f640db1712cf2277e7923e7bab68
     TIMEOUT 600
@@ -71,6 +71,11 @@ endmacro()
 
 if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.4.1)
   build_console_bridge()
+endif()
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
 endif()
 
 # this ensures that the package has an environment hook setting the PATH
