@@ -73,6 +73,7 @@ if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.4.1)
   build_console_bridge()
 endif()
 
+# TODO(blast545): This section and package.xml should be updated once copyright auto is solved. See: https://github.com/ament/ament_lint/issues/237
 if(BUILD_TESTING)
   find_package(ament_cmake_copyright QUIET)
   find_package(ament_cmake_lint_cmake QUIET)
