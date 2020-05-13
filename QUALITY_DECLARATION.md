@@ -56,7 +56,7 @@ All pull requests must resolve related documentation changes before merging.
 
 ### Feature Documentation [3.i]
 
-There is some documentation on its latest [wiki](http://wiki.ros.org/console_bridge). This information might require to be updated and expanded further for the use of `console_bridge_vendor`.
+`console_bridge_vendor` does not have features other than importing the external dependency `libconsole-bridge-dev` and therefore does not require feature documentation.
 
 ### Public API Documentation [3.ii]
 
