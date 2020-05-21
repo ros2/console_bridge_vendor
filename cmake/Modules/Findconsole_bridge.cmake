@@ -14,7 +14,7 @@ else()
 endif()
 
 # Find headers and libraries
-find_path(console_bridge_INCLUDE_DIR NAMES console_bridge.h PATH_SUFFIXES "console_bridge" ${console_bridge_INCLUDE_PATH})
+find_path(console_bridge_INCLUDE_DIR NAMES console.h PATH_SUFFIXES "console_bridge" ${console_bridge_INCLUDE_PATH})
 find_library(console_bridge_LIBRARY  NAMES console_bridge   PATH_SUFFIXES "console_bridge" ${console_bridge_LIBRARY_PATH})
 
 mark_as_advanced(console_bridge_INCLUDE_DIR console_bridge_LIBRARY)
