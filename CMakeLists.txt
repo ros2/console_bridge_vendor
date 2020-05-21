@@ -72,6 +72,8 @@ endmacro()
 
 if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.5.0)
   build_console_bridge()
+else()
+  message(STATUS "Found console_bridge, skipping build.")
 endif()
 
 # TODO(blast545): This section and package.xml should be updated once copyright auto is solved.
@@ -82,4 +84,4 @@ if(BUILD_TESTING)
 endif()
 
 # this ensures that the package has an environment hook setting the PATH
-ament_package()
+ament_package(CONFIG_EXTRAS console_bridge_vendor-extras.cmake)
