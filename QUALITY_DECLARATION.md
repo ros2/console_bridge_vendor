@@ -14,7 +14,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Version Stability [1.ii]
 
-`console_bridge_vendor` is at or above a stable version, i.e. `>= 1.0.0`.
+`console_bridge_vendor` is at a stable version, i.e. >= 1.0.0. The current version can be found in its [package.xml](./package.xml).
 
 ### Public API Declaration [1.iii]
 
