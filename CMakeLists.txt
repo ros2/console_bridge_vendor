@@ -51,9 +51,9 @@ macro(build_console_bridge)
   include(ExternalProject)
 
   # Get console_bridge 0.5.1
-  externalproject_add(console_bridge-0.5.1
-    URL https://github.com/ros/console_bridge/archive/0.5.1.tar.gz
-    URL_MD5 c49ac3396ef364862ea8aef5ce28bb66
+  externalproject_add(console_bridge-1.0.1
+    URL https://github.com/ros/console_bridge/archive/1.0.1.tar.gz
+    URL_MD5 9f5351994c7690b37f88e9f70e478061
     TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
@@ -70,7 +70,7 @@ macro(build_console_bridge)
   )
 endmacro()
 
-if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 0.5.1)
+if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 1.0.1)
   build_console_bridge()
 endif()
 
