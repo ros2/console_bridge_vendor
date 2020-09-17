@@ -59,6 +59,9 @@ macro(build_console_bridge)
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
       ${extra_cmake_args}
       -Wno-dev
+      -Wall
+      -Wextra
+      -Wpedantic
   )
 
   # The external project will install to the build folder, but we'll install that on make install.
