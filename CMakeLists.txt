@@ -79,6 +79,17 @@ endif()
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(performance_test_fixture REQUIRED)
+  # Give cppcheck hints about macro definitions coming from outside this package
+  get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
+    performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
+
+  add_performance_test(benchmark_log benchmark/benchmark_log.cpp)
+  if(TARGET benchmark_log)
+    target_include_directories(benchmark_log PUBLIC include ${console_bridge_INCLUDE_DIRS})
+    target_link_libraries(benchmark_log ${console_bridge_LIBRARIES})
+  endif()
 endif()
 
 # this ensures that the package has an environment hook setting the PATH
