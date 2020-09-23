@@ -47,7 +47,7 @@ public:
   console_bridge::LogLevel log_level_{console_bridge::LogLevel::CONSOLE_BRIDGE_LOG_NONE};
 };
 
-class PerformanceFileHandlerTest : public performance_test_fixture::PerformanceTest
+class PerformanceFileHandlerTest : public PerformanceTest
 {
 public:
   PerformanceFileHandlerTest()
@@ -57,12 +57,12 @@ public:
   {
     // Needs to be reset to avoid side effects from other tests
     console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_WARN);
-    performance_test_fixture::PerformanceTest::SetUp(st);
+    PerformanceTest::SetUp(st);
   }
 
   virtual void TearDown(benchmark::State & st)
   {
-    performance_test_fixture::PerformanceTest::TearDown(st);
+    PerformanceTest::TearDown(st);
     remove(log_filename());
   }
 
@@ -76,61 +76,59 @@ public:
 
   const char * log_filename()
   {
-    return log_filename_.c_str();
+    return log_filename_;
   }
 
 private:
-  std::string log_filename_;
+  const char * log_filename_;
 };
 
 BENCHMARK_DEFINE_F(PerformanceTest, log_to_console)(benchmark::State & st)
 {
-  const std::string text = "Some logging text";
+  const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
   OutputHandlerString string_oh;
   console_bridge::useOutputHandler(&string_oh);
-  reset_heap_counters();
   for (auto _ : st) {
-    CONSOLE_BRIDGE_logInform(text.c_str());
+    CONSOLE_BRIDGE_logInform(text);
   }
 }
 BENCHMARK_REGISTER_F(PerformanceTest, log_to_console);
 
 BENCHMARK_DEFINE_F(PerformanceTest, log_to_console_to_low)(benchmark::State & st)
 {
-  const std::string text = "Some logging text";
+  const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
   OutputHandlerString string_oh;
   console_bridge::useOutputHandler(&string_oh);
-  reset_heap_counters();
   for (auto _ : st) {
-    CONSOLE_BRIDGE_logDebug(text.c_str());
+    CONSOLE_BRIDGE_logDebug(text);
   }
 }
 BENCHMARK_REGISTER_F(PerformanceTest, log_to_console_to_low);
 
 BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file)(benchmark::State & st)
 {
-  const std::string text = "Some logging text";
+  const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
   console_bridge::OutputHandlerFile handler(log_filename());
   console_bridge::useOutputHandler(&handler);
   reset_heap_counters();
   for (auto _ : st) {
-    CONSOLE_BRIDGE_logInform(text.c_str());
+    CONSOLE_BRIDGE_logInform(text);
   }
 }
 BENCHMARK_REGISTER_F(PerformanceFileHandlerTest, log_to_file);
 
 BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file_to_low)(benchmark::State & st)
 {
-  const std::string text = "Some logging text";
+  const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
   console_bridge::OutputHandlerFile handler(log_filename());
   console_bridge::useOutputHandler(&handler);
   reset_heap_counters();
   for (auto _ : st) {
-    CONSOLE_BRIDGE_logDebug(text.c_str());
+    CONSOLE_BRIDGE_logDebug(text);
   }
 }
 BENCHMARK_REGISTER_F(PerformanceFileHandlerTest, log_to_file_to_low);

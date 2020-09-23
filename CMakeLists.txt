@@ -2,6 +2,15 @@ cmake_minimum_required(VERSION 3.5)
 
 project(console_bridge_vendor)
 
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
 find_package(ament_cmake REQUIRED)
 
 option(FORCE_BUILD_VENDOR_PKG
@@ -13,7 +22,12 @@ if(NOT FORCE_BUILD_VENDOR_PKG)
 endif()
 
 macro(build_console_bridge)
-  set(extra_cmake_args)
+  include(GNUInstallDirs)
+
+  set(extra_cmake_args
+    "-DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}"
+    "-DCMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}"
+  )
   if(DEFINED CMAKE_BUILD_TYPE)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
   endif()
@@ -68,10 +82,15 @@ macro(build_console_bridge)
     DESTINATION
       ${CMAKE_INSTALL_PREFIX}
   )
+
+  set(console_bridge_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR})
+  set(console_bridge_LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+  set(console_bridge_LIBRARIES console_bridge)
 endmacro()
 
 if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 1.0.1)
   build_console_bridge()
+  set(extra_test_dependencies console_bridge-1.0.1)
 endif()
 
 # TODO(blast545): This section and package.xml should be updated once copyright auto is solved.
@@ -85,10 +104,14 @@ if(BUILD_TESTING)
   get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
     performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
 
-  add_performance_test(benchmark_log benchmark/benchmark_log.cpp)
+  add_performance_test(benchmark_log test/benchmark/benchmark_log.cpp)
   if(TARGET benchmark_log)
-    target_include_directories(benchmark_log PUBLIC include ${console_bridge_INCLUDE_DIRS})
+    target_include_directories(benchmark_log PRIVATE include ${console_bridge_INCLUDE_DIRS})
     target_link_libraries(benchmark_log ${console_bridge_LIBRARIES})
+    target_link_directories(benchmark_log PRIVATE ${console_bridge_LIBRARY_DIRS})
+    if(extra_test_dependencies)
+      add_dependencies(benchmark_log ${extra_test_dependencies})
+    endif()
   endif()
 endif()
 
