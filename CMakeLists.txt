@@ -83,8 +83,8 @@ macro(build_console_bridge)
       ${CMAKE_INSTALL_PREFIX}
   )
 
-  set(console_bridge_INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR})
-  set(console_bridge_LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
+  set(console_bridge_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_INCLUDEDIR})
+  set(console_bridge_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_LIBDIR})
   set(console_bridge_LIBRARIES console_bridge)
 endmacro()
 
@@ -106,7 +106,7 @@ if(BUILD_TESTING)
 
   add_performance_test(benchmark_log test/benchmark/benchmark_log.cpp)
   if(TARGET benchmark_log)
-    target_include_directories(benchmark_log PRIVATE include ${console_bridge_INCLUDE_DIRS})
+    target_include_directories(benchmark_log PRIVATE ${console_bridge_INCLUDE_DIRS})
     target_link_libraries(benchmark_log ${console_bridge_LIBRARIES})
     target_link_directories(benchmark_log PRIVATE ${console_bridge_LIBRARY_DIRS})
     if(extra_test_dependencies)
