@@ -83,7 +83,7 @@ private:
   const char * log_filename_;
 };
 
-BENCHMARK_DEFINE_F(PerformanceTest, log_to_console)(benchmark::State & st)
+BENCHMARK_F(PerformanceTest, log_to_console)(benchmark::State & st)
 {
   const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
@@ -93,9 +93,8 @@ BENCHMARK_DEFINE_F(PerformanceTest, log_to_console)(benchmark::State & st)
     CONSOLE_BRIDGE_logInform(text);
   }
 }
-BENCHMARK_REGISTER_F(PerformanceTest, log_to_console);
 
-BENCHMARK_DEFINE_F(PerformanceTest, log_to_console_to_low)(benchmark::State & st)
+BENCHMARK_F(PerformanceTest, log_to_console_to_low)(benchmark::State & st)
 {
   const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
@@ -105,9 +104,8 @@ BENCHMARK_DEFINE_F(PerformanceTest, log_to_console_to_low)(benchmark::State & st
     CONSOLE_BRIDGE_logDebug(text);
   }
 }
-BENCHMARK_REGISTER_F(PerformanceTest, log_to_console_to_low);
 
-BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file)(benchmark::State & st)
+BENCHMARK_F(PerformanceFileHandlerTest, log_to_file)(benchmark::State & st)
 {
   const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
@@ -118,9 +116,8 @@ BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file)(benchmark::State & s
     CONSOLE_BRIDGE_logInform(text);
   }
 }
-BENCHMARK_REGISTER_F(PerformanceFileHandlerTest, log_to_file);
 
-BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file_to_low)(benchmark::State & st)
+BENCHMARK_F(PerformanceFileHandlerTest, log_to_file_to_low)(benchmark::State & st)
 {
   const char * text = "Some logging text";
   console_bridge::setLogLevel(console_bridge::CONSOLE_BRIDGE_LOG_INFO);
@@ -131,4 +128,3 @@ BENCHMARK_DEFINE_F(PerformanceFileHandlerTest, log_to_file_to_low)(benchmark::St
     CONSOLE_BRIDGE_logDebug(text);
   }
 }
-BENCHMARK_REGISTER_F(PerformanceFileHandlerTest, log_to_file_to_low);
