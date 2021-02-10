@@ -84,6 +84,7 @@ macro(build_console_bridge)
       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/
     DESTINATION
       ${CMAKE_INSTALL_PREFIX}
+    USE_SOURCE_PERMISSIONS
   )
 
   set(console_bridge_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_INCLUDEDIR})
