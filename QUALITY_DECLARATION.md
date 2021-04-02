@@ -4,13 +4,13 @@ This document is a declaration of software quality for the `console_bridge_vendo
 
 The package `console_bridge_vendor` claims to be in the **Quality Level 1** category.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#package-quality-categories) of the ROS2 developer guide.
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html) of the ROS2 developer guide.
 
 ## Version Policy [1]
 
 ### Version Scheme [1.i]
 
-`console_bridge_vendor` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#versioning).
+`console_bridge_vendor` uses `semver` according to the recommendation for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#versioning).
 
 ### Version Stability [1.ii]
 
@@ -30,11 +30,11 @@ This is a vendor package for `libconsole-bridge-dev` and as such does not declar
 
 ## Change Control Process [2]
 
-`console_bridge_vendor` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process).
+`console_bridge_vendor` follows the recommended guidelines for ROS Core packages in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process).
 
 ### Change Requests [2.i]
 
-All changes will occur through a pull request, check the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process) for additional information.
+All changes will occur through a pull request, check the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process) for additional information.
 
 ### Contributor Origin [2.ii]
 
@@ -42,7 +42,7 @@ This package uses DCO as its confirmation of contributor origin policy. More inf
 
 ### Peer Review Policy [2.iii]
 
-All pull requests will be peer-reviewed, check [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#change-control-process) for additional information.
+All pull requests will be peer-reviewed, check [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#change-control-process) for additional information.
 
 ### Continuous Integration [2.iv]
 
