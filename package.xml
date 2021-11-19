@@ -9,12 +9,15 @@
     Wrapper around console_bridge, providing nothing but a dependency on console_bridge, on some systems.
     On others, it provides an ExternalProject build of console_bridge.
   </description>
-  <maintainer email="alejandro@osrfoundation.org">Alejandro Hernandez</maintainer>
+
+  <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</maintainer>
+
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>BSD</license>  <!-- console_bridge is BSD -->
 
   <url type="website">https://github.com/ros/console_bridge</url>
 
+  <author email="alejandro@osrfoundation.org">Alejandro Hernandez</author>
   <author>Steven! Ragnarök</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
