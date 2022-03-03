@@ -1,0 +1,26 @@
+From 3182049cabf435a8c0e7c31be2b356aa80d82e65 Mon Sep 17 00:00:00 2001
+From: Shane Loretz <sloretz@osrfoundation.org>
+Date: Thu, 3 Mar 2022 14:38:52 -0800
+Subject: [PATCH] Make exported target use CMAKE_INSTALL_INCLUDEDIR
+
+Signed-off-by: Shane Loretz <sloretz@osrfoundation.org>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 98240fd..20cd22a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -54,7 +54,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION
+ target_include_directories(${PROJECT_NAME} PUBLIC
+ 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+ 	$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>
+-	$<INSTALL_INTERFACE:include>)
++	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+ generate_export_header(${PROJECT_NAME}
+     EXPORT_MACRO_NAME CONSOLE_BRIDGE_DLLAPI)
+ 
+-- 
+2.25.1
+

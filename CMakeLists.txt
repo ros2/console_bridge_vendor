@@ -26,7 +26,7 @@ macro(build_console_bridge)
 
   set(extra_cmake_args
     "-DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}"
-    "-DCMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}"
+    "-DCMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}"
   )
   if(DEFINED CMAKE_BUILD_TYPE)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
@@ -64,10 +64,14 @@ macro(build_console_bridge)
 
   include(ExternalProject)
 
-  # Get console_bridge 0.5.1
+  # Download and build console_bridge
   externalproject_add(console_bridge-1.0.1
-    URL https://github.com/ros/console_bridge/archive/1.0.1.tar.gz
-    URL_MD5 9f5351994c7690b37f88e9f70e478061
+    GIT_REPOSITORY https://github.com/ros/console_bridge.git
+    GIT_TAG 0a6c16ed68750837c32ed1cedee9fca7d61d4364  # 1.0.1
+    GIT_CONFIG advice.detachedHead=false
+    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+    UPDATE_COMMAND ""
     TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
@@ -76,6 +80,9 @@ macro(build_console_bridge)
       -Wall
       -Wextra
       -Wpedantic
+    PATCH_COMMAND
+      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
+        ${CMAKE_CURRENT_SOURCE_DIR}/0001-Make-exported-target-use-CMAKE_INSTALL_INCLUDEDIR.patch
   )
 
   # The external project will install to the build folder, but we'll install that on make install.
