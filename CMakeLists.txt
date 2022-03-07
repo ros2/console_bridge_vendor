@@ -94,7 +94,7 @@ macro(build_console_bridge)
     USE_SOURCE_PERMISSIONS
   )
 
-  set(console_bridge_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_INCLUDEDIR})
+  set(console_bridge_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
   set(console_bridge_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install/${CMAKE_INSTALL_LIBDIR})
   set(console_bridge_LIBRARIES console_bridge)
 endmacro()
