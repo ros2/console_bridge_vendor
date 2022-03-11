@@ -65,9 +65,9 @@ macro(build_console_bridge)
   include(ExternalProject)
 
   # Download and build console_bridge
-  externalproject_add(console_bridge-1.0.1
+  externalproject_add(console_bridge-1.0.2
     GIT_REPOSITORY https://github.com/ros/console_bridge.git
-    GIT_TAG 0a6c16ed68750837c32ed1cedee9fca7d61d4364  # 1.0.1
+    GIT_TAG 0828d846f2d4940b4e2b5075c6c724991d0cd308 # 1.0.2
     GIT_CONFIG advice.detachedHead=false
     # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
     # See https://github.com/ament/uncrustify_vendor/pull/22 for details
@@ -80,9 +80,6 @@ macro(build_console_bridge)
       -Wall
       -Wextra
       -Wpedantic
-    PATCH_COMMAND
-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
-        ${CMAKE_CURRENT_SOURCE_DIR}/0001-Make-exported-target-use-CMAKE_INSTALL_INCLUDEDIR.patch
   )
 
   # The external project will install to the build folder, but we'll install that on make install.
@@ -99,9 +96,11 @@ macro(build_console_bridge)
   set(console_bridge_LIBRARIES console_bridge)
 endmacro()
 
+# Version 1.0.1 is fine if it's already installed on the system
 if(NOT console_bridge_FOUND OR "${console_bridge_VERSION}" VERSION_LESS 1.0.1)
   build_console_bridge()
-  set(extra_test_dependencies console_bridge-1.0.1)
+  # 1.0.2 is necessary when building in a workspace so others can override it
+  set(extra_test_dependencies console_bridge-1.0.2)
 endif()
 
 # TODO(blast545): This section and package.xml should be updated once copyright auto is solved.
