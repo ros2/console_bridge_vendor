@@ -66,12 +66,8 @@ macro(build_console_bridge)
 
   # Download and build console_bridge
   externalproject_add(console_bridge-1.0.2
-    GIT_REPOSITORY https://github.com/ros/console_bridge.git
-    GIT_TAG 0828d846f2d4940b4e2b5075c6c724991d0cd308 # 1.0.2
-    GIT_CONFIG advice.detachedHead=false
-    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
-    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
-    UPDATE_COMMAND ""
+    URL https://github.com/ros/console_bridge/archive/1.0.2.tar.gz
+    URL_HASH SHA256=303a619c01a9e14a3c82eb9762b8a428ef5311a6d46353872ab9a904358be4a4
     TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install
