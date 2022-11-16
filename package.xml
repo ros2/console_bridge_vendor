@@ -10,13 +10,14 @@
     On others, it provides an ExternalProject build of console_bridge.
   </description>
 
-  <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</maintainer>
+  <maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
 
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>BSD</license>  <!-- console_bridge is BSD -->
 
   <url type="website">https://github.com/ros/console_bridge</url>
 
+  <author email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</author>
   <author>Steven! Ragnarök</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
