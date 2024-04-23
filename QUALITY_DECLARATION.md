@@ -4,7 +4,7 @@ This document is a declaration of software quality for the `console_bridge_vendo
 
 The package `console_bridge_vendor` claims to be in the **Quality Level 1** category.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html) of the ROS2 developer guide.
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html).
 
 ## Version Policy [1]
 
@@ -14,7 +14,8 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Version Stability [1.ii]
 
-`console_bridge_vendor` is at a stable version, i.e. >= 1.0.0. The current version can be found in its [package.xml](./package.xml).
+`console_bridge_vendor` is at a stable version, i.e. >= 1.0.0.
+The current version can be found in its [package.xml](./package.xml).
 
 ### Public API Declaration [1.iii]
 
@@ -38,7 +39,8 @@ All changes will occur through a pull request, check the [ROS 2 Developer Guide]
 
 ### Contributor Origin [2.ii]
 
-This package uses DCO as its confirmation of contributor origin policy. More information can be found in [CONTRIBUTING](./CONTRIBUTING.md).
+This package uses DCO as its confirmation of contributor origin policy.
+More information can be found in [CONTRIBUTING](./CONTRIBUTING.md).
 
 ### Peer Review Policy [2.iii]
 
@@ -70,7 +72,8 @@ All pull requests must resolve related documentation changes before merging.
 
 ### License [3.iii]
 
-The license for `console_bridge_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](./package.xml) manifest file, and a full copy of the license is in the `LICENSE` file. The vendored library, `libconsole-bridge-dev` license is BSD as stated in its quality declaration document (Section 5.iii).
+The license for `console_bridge_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](./package.xml) manifest file, and a full copy of the license is in the `LICENSE` file.
+The license of the vendored library, `libconsole-bridge-dev`, is BSD as stated in its quality declaration document (Section 5.iii).
 
 ### Copyright Statements [3.iv]
 
@@ -80,21 +83,25 @@ The copyright holders each provide a statement of copyright in each source code 
 
 ### Feature Testing [4.i]
 
-`console_bridge_vendor` does not have feature testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`console_bridge_vendor` does not have feature testing.
+For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Public API Testing [4.ii]
 
-`console_bridge_vendor` does not have Public API testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`console_bridge_vendor` does not have Public API testing.
+For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Coverage [4.iii]
 
-`console_bridge_vendor` does not provide coverage testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`console_bridge_vendor` does not provide coverage testing.
+For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Performance [4.iv]
 
 The Console Bridge package is benchmarked and the most recent test results can be found [here](http://build.ros2.org/view/Rci/job/Rci__benchmark_ubuntu_focal_amd64/BenchmarkTable/).
 
-`console_bridge_vendor` does not provide performance testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`console_bridge_vendor` does not provide performance testing.
+For vendored packages, this will be considered to be addressed in the external dependency.
 
 ### Linters and Static Analysis [4.v]
 
