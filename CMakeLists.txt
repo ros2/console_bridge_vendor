@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.20)
 project(console_bridge_vendor)
 
 if(NOT CMAKE_CXX_STANDARD)
@@ -18,7 +18,7 @@ find_package(console_bridge 1.0.1 QUIET)
 ament_vendor(console_bridge_vendor
   SATISFIED ${console_bridge_FOUND}
   VCS_URL https://github.com/ros/console_bridge.git
-  VCS_VERSION 0828d846f2d4940b4e2b5075c6c724991d0cd308
+  VCS_VERSION 81ec67f6daf3cd19ef506e00f02efb1645597b9c
   GLOBAL_HOOK
 )
 
