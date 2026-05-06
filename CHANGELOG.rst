@@ -2,6 +2,9 @@
 Changelog for package console_bridge_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.9.1 (2025-07-01)
 ------------------
 * Update CMake version here and console_bridge (`#44 <https://github.com/ros2/console_bridge_vendor/issues/44>`_)
